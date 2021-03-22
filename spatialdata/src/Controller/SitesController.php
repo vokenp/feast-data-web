@@ -220,6 +220,12 @@ class SitesController extends AppController
                 $rstdata = $fgCoordinates->newEntity($this->request->getData());
                 $rstdata->id_focus_group = (int)$this->request->getData("id_focus_group");
             }
+            $arlist = json_decode($pathstr);
+            if(count($arlist) > 0)
+            {
+              $arlist[] = $arlist[0];
+            }
+          $pathstr = json_encode($arlist);  
 
       $rstdata->loc_json = $pathstr;
       if ($rstdata->loc_json) {
